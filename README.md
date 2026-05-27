@@ -1,24 +1,39 @@
 # Enterprise AI Copilot
 
-An AI-powered enterprise HR assistant built using React, FastAPI, ChromaDB, and semantic retrieval (RAG).
+This project is a simple enterprise HR copilot built using React, FastAPI, ChromaDB, and semantic search.
 
-The application enables employees to query internal HR policies using natural language through a modern conversational interface.
+The goal of this project was to simulate how internal enterprise AI assistants work using Retrieval-Augmented Generation (RAG) concepts and vector-based document retrieval.
+
+Users can ask questions related to HR policies such as onboarding, escalation procedures, and leave policies through a conversational interface.
+
+---
+
+# Why I Built This
+
+I wanted to build a practical AI-enabled fullstack application that demonstrates:
+
+- frontend + backend integration
+- semantic retrieval workflows
+- enterprise-style AI UX
+- vector search using embeddings
+- grounded AI responses using internal documents
+
+This project focuses more on AI workflow orchestration and retrieval pipelines than on training ML models.
 
 ---
 
 # Features
 
-- Enterprise AI chatbot
-- Semantic search using embeddings
-- Retrieval-Augmented Generation (RAG)
-- ChromaDB vector database
+- HR policy chatbot interface
+- Semantic document retrieval
+- ChromaDB vector database integration
 - FastAPI backend APIs
 - React frontend
-- Modern enterprise UI
 - Suggested prompts
-- Explainable AI responses
-- Human feedback controls
-- Dark mode interface
+- Dark mode UI
+- Feedback buttons
+- Source grounding / explainability
+- Enterprise dashboard-style layout
 
 ---
 
@@ -31,42 +46,33 @@ The application enables employees to query internal HR policies using natural la
 - CSS
 
 ## Backend
-- FastAPI
 - Python
+- FastAPI
 
 ## AI / Retrieval
 - Sentence Transformers
 - ChromaDB
-- Semantic Vector Search
-
----
-
-# Architecture
-
-User Query  
-↓  
-React Frontend  
-↓  
-FastAPI Backend  
-↓  
-Sentence Embeddings  
-↓  
-ChromaDB Semantic Retrieval  
-↓  
-Relevant HR Documents  
-↓  
-Grounded AI Response  
+- Semantic similarity search
 
 ---
 
 # How It Works
 
-1. User submits a question from the frontend.
-2. Backend converts the query into vector embeddings.
-3. ChromaDB performs semantic similarity search.
-4. Relevant HR documents are retrieved.
-5. The system generates a grounded enterprise response.
-6. Sources and explainability information are displayed in the UI.
+1. User enters a question in the frontend.
+2. Backend converts the query into embeddings.
+3. ChromaDB searches for semantically similar HR documents.
+4. Relevant document chunks are retrieved.
+5. The response is displayed in the UI along with source context.
+
+This follows a lightweight Retrieval-Augmented Generation (RAG) workflow.
+
+---
+
+# Example Queries
+
+- What is onboarding?
+- Explain escalation process
+- What is the leave policy?
 
 ---
 
@@ -74,21 +80,21 @@ Grounded AI Response
 
 ```bash
 enterprise-copilot/
-│
+
 ├── frontend/
 │
 ├── backend/
 │   ├── documents/
 │   ├── main.py
 │   ├── rag.py
-│   ├── requirements.txt
+│   └── requirements.txt
 │
 └── README.md
 ```
 
 ---
 
-# Setup Instructions
+# Running the Project
 
 ## Backend
 
@@ -116,53 +122,74 @@ npm install
 npm run dev
 ```
 
+Frontend runs on:
+```bash
+http://localhost:5173
+```
+
+Backend runs on:
+```bash
+http://127.0.0.1:8000
+```
+
 ---
 
-# Example Questions
+# Architecture Overview
 
-- What is onboarding?
-- Explain escalation process.
-- What is leave policy?
+User Query
+↓
+React Frontend
+↓
+FastAPI Backend
+↓
+Embedding Generation
+↓
+ChromaDB Semantic Search
+↓
+Relevant HR Documents
+↓
+Grounded Response
 
 ---
 
-# Responsible AI
+# Design Decisions
 
-- Responses are grounded using enterprise HR documents.
-- Semantic retrieval reduces hallucinations.
-- Feedback controls allow human evaluation of AI responses.
-- Users should validate critical HR decisions with official HR teams.
+A few intentional decisions made during development:
+
+- Used semantic retrieval instead of keyword search
+- Added source visibility for explainability
+- Kept the UI enterprise-oriented instead of chatbot-themed
+- Added lightweight human feedback controls
+- Focused on practical AI integration instead of model training
 
 ---
 
 # Future Improvements
 
-- PDF uploads
-- Authentication
+Some improvements that could be added later:
+
+- PDF ingestion
+- Authentication / RBAC
 - Streaming responses
-- Conversation memory
-- Enterprise RBAC
-- Observability dashboards
+- Conversation history
+- Better chunking strategies
+- Observability and logging
+- OpenAI / hosted LLM integration
 
 ---
 
-# Screenshots
+# What This Project Demonstrates
 
-Add screenshots here for:
-- Main dashboard
-- Onboarding response
-- Escalation response
-- Dark mode UI
+- Fullstack application development
+- AI-assisted enterprise workflows
+- Semantic retrieval systems
+- API integration
+- Vector database usage
+- React + FastAPI integration
+- Enterprise AI UX concepts
 
 ---
 
 # Author
 
-Built as an enterprise AI copilot prototype demonstrating:
-
-- Fullstack engineering
-- AI workflow orchestration
-- Semantic retrieval systems
-- Enterprise AI UX
-- FastAPI backend development
-- React frontend development
+Built as a practical enterprise AI copilot prototype for demonstrating AI-enabled software engineering workflows.
