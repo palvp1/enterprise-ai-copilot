@@ -1,100 +1,139 @@
 # Enterprise AI Copilot
 
-This project is a simple enterprise HR copilot built using React, FastAPI, ChromaDB, and semantic search.
+A lightweight enterprise AI copilot built using React, FastAPI, OpenAI, and ChromaDB.
 
-The goal of this project was to simulate how internal enterprise AI assistants work using Retrieval-Augmented Generation (RAG) concepts and vector-based document retrieval.
+This project was designed to simulate how internal enterprise AI assistants work using semantic retrieval and grounded LLM responses.
 
-Users can ask questions related to HR policies such as onboarding, escalation procedures, and leave policies through a conversational interface.
-
----
-
-# Why I Built This
-
-I wanted to build a practical AI-enabled fullstack application that demonstrates:
-
-- frontend + backend integration
-- semantic retrieval workflows
-- enterprise-style AI UX
-- vector search using embeddings
-- grounded AI responses using internal documents
-
-This project focuses more on AI workflow orchestration and retrieval pipelines than on training ML models.
+The application allows employees to ask HR-related questions in natural language and receive AI-generated responses grounded using enterprise policy documents.
 
 ---
 
-# Features
+# Motivation
 
-- HR policy chatbot interface
-- Semantic document retrieval
-- ChromaDB vector database integration
-- FastAPI backend APIs
-- React frontend
-- Suggested prompts
-- Dark mode UI
-- Feedback buttons
-- Source grounding / explainability
-- Enterprise dashboard-style layout
+The goal of this project was to explore practical AI-assisted enterprise workflows rather than building a generic chatbot UI.
+
+I wanted to focus on:
+
+* semantic retrieval pipelines
+* retrieval-augmented generation (RAG)
+* enterprise-style conversational UX
+* AI orchestration patterns
+* grounded LLM responses
+* fullstack AI application architecture
+
+---
+
+# Core Features
+
+* Enterprise HR copilot interface
+* Semantic search using vector embeddings
+* Retrieval-Augmented Generation (RAG)
+* OpenAI-powered response generation
+* ChromaDB vector database
+* FastAPI backend APIs
+* React frontend
+* Suggested prompt workflows
+* Explainability / source grounding
+* Human feedback controls
+* Enterprise dashboard-style UI
+
+---
+
+# Architecture Overview
+
+The application follows a lightweight RAG architecture:
+
+User Query
+↓
+React Frontend
+↓
+FastAPI Backend
+↓
+SentenceTransformer Embeddings
+↓
+ChromaDB Semantic Retrieval
+↓
+Relevant HR Context Retrieval
+↓
+OpenAI GPT Response Generation
+↓
+Grounded Enterprise Response
+
+---
+
+# How Retrieval Works
+
+1. User submits a query from the frontend.
+2. Backend converts the query into embeddings.
+3. ChromaDB performs semantic similarity search.
+4. Relevant HR documents are retrieved.
+5. Retrieved context is injected into the LLM prompt.
+6. OpenAI generates a grounded response.
+7. Response is displayed along with source visibility.
+
+This helps reduce hallucinations by constraining responses using enterprise documents.
 
 ---
 
 # Tech Stack
 
 ## Frontend
-- React
-- TypeScript
-- Vite
-- CSS
+
+* React
+* Vite
+* TypeScript
+* CSS
 
 ## Backend
-- Python
-- FastAPI
+
+* Python
+* FastAPI
+* Uvicorn
 
 ## AI / Retrieval
-- Sentence Transformers
-- ChromaDB
-- Semantic similarity search
 
----
-
-# How It Works
-
-1. User enters a question in the frontend.
-2. Backend converts the query into embeddings.
-3. ChromaDB searches for semantically similar HR documents.
-4. Relevant document chunks are retrieved.
-5. The response is displayed in the UI along with source context.
-
-This follows a lightweight Retrieval-Augmented Generation (RAG) workflow.
+* OpenAI API
+* Sentence Transformers
+* ChromaDB
+* Vector Embeddings
+* Semantic Search
 
 ---
 
 # Example Queries
 
-- What is onboarding?
-- Explain escalation process
-- What is the leave policy?
+* What is onboarding?
+* Explain escalation process
+* What is the leave policy?
+* Who handles security incidents?
 
 ---
 
 # Project Structure
 
 ```bash
-enterprise-copilot/
-
-├── frontend/
+enterprise-ai-copilot/
 │
 ├── backend/
 │   ├── documents/
 │   ├── main.py
 │   ├── rag.py
-│   └── requirements.txt
+│   ├── requirements.txt
+│   └── .env
 │
-└── README.md
+├── frontend/
+│   ├── src/
+│   └── package.json
+│
+├── screenshots/
+│
+├── README.md
+└── .gitignore
 ```
 
 ---
 
-# Running the Project
+# Local Setup
 
 ## Backend
 
@@ -110,6 +149,12 @@ pip install -r requirements.txt
 uvicorn main:app --reload
 ```
 
+Backend runs on:
+
+```bash
+http://127.0.0.1:8000
+```
+
 ---
 
 ## Frontend
@@ -123,84 +168,80 @@ npm run dev
 ```
 
 Frontend runs on:
+
 ```bash
 http://localhost:5173
 ```
 
-Backend runs on:
-```bash
-http://127.0.0.1:8000
+---
+
+# Environment Variables
+
+Create `.env` inside backend:
+
+```env
+OPENAI_API_KEY=your_openai_api_key
 ```
 
 ---
 
-# Architecture Overview
+# Screenshots
 
-User Query
-↓
-React Frontend
-↓
-FastAPI Backend
-↓
-Embedding Generation
-↓
-ChromaDB Semantic Search
-↓
-Relevant HR Documents
-↓
-Grounded Response
+## Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+## Onboarding Workflow
+
+![Onboarding](screenshots/onboarding.png)
+
+## Escalation Workflow
+
+![Escalation](screenshots/escalation.png)
 
 ---
 
 # Design Decisions
 
-A few intentional decisions made during development:
+Some intentional design decisions made during development:
 
-- Used semantic retrieval instead of keyword search
-- Added source visibility for explainability
-- Kept the UI enterprise-oriented instead of chatbot-themed
-- Added lightweight human feedback controls
-- Focused on practical AI integration instead of model training
+* Used semantic retrieval instead of keyword search
+* Added source visibility for explainability
+* Focused on grounded AI responses
+* Kept the UI enterprise-oriented instead of consumer-chatbot themed
+* Added lightweight human feedback controls
+* Prioritized practical AI orchestration over model training
 
 ---
 
 # Future Improvements
 
-Some improvements that could be added later:
+Potential future enhancements:
 
-- PDF ingestion
-- Authentication / RBAC
-- Streaming responses
-- Conversation history
-- Better chunking strategies
-- Observability and logging
-- OpenAI / hosted LLM integration
+* Multi-turn conversation memory
+* Streaming AI responses
+* Authentication and RBAC
+* PDF ingestion pipelines
+* Admin document upload portal
+* Response evaluation metrics
+* Prompt/version observability
+* Persistent vector database storage
 
 ---
 
 # What This Project Demonstrates
 
-- Fullstack application development
-- AI-assisted enterprise workflows
-- Semantic retrieval systems
-- API integration
-- Vector database usage
-- React + FastAPI integration
-- Enterprise AI UX concepts
-
-## Screenshots
-
-### Dashboard
-![Dashboard](screenshots/dashboard.png)
-
-### Onboarding Query
-![Onboarding](screenshots/onboarding.png)
-
-### Escalation Query
-![Escalation](screenshots/escalation.png)
+* Fullstack AI application development
+* RAG architecture implementation
+* AI workflow orchestration
+* Semantic retrieval systems
+* Vector database integration
+* FastAPI API development
+* React frontend engineering
+* Enterprise AI UX concepts
 
 ---
 
 # Author
 
-Built as a practical enterprise AI copilot prototype for demonstrating AI-enabled software engineering workflows.
+Built by Pallavi P as part of an AI-driven fullstack engineering assignment focused on enterprise AI assistant workflows.
