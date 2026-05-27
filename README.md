@@ -188,6 +188,17 @@ Some improvements that could be added later:
 - React + FastAPI integration
 - Enterprise AI UX concepts
 
+## Screenshots
+
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### Onboarding Query
+![Onboarding](screenshots/onboarding.png)
+
+### Escalation Query
+![Escalation](screenshots/escalation.png)
+
 ---
 
 # Author
